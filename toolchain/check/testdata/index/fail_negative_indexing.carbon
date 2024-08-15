@@ -62,6 +62,7 @@ var b: i32 = a[-10];
 // CHECK:STDOUT:     .b = %b
 // CHECK:STDOUT:   }
 // CHECK:STDOUT:   %Core.import = import Core
+<<<<<<< HEAD
 // CHECK:STDOUT:   %int.make_type_32.loc11_9: init type = call constants.%Int32() [template = i32]
 // CHECK:STDOUT:   %int.make_type_32.loc11_14: init type = call constants.%Int32() [template = i32]
 // CHECK:STDOUT:   %.loc11_17.1: %.2 = tuple_literal (%int.make_type_32.loc11_9, %int.make_type_32.loc11_14)
@@ -72,11 +73,32 @@ var b: i32 = a[-10];
 // CHECK:STDOUT:   %.loc11_17.6: type = converted %.loc11_17.1, constants.%.3 [template = constants.%.3]
 // CHECK:STDOUT:   %a.var: ref %.3 = var a
 // CHECK:STDOUT:   %a: ref %.3 = bind_name a, %a.var
+=======
+// CHECK:STDOUT:   %int.make_type_32.loc11: init type = call constants.%Int32() [template = i32]
+// CHECK:STDOUT:   %.loc11_14: i32 = int_literal 2 [template = constants.%.2]
+// CHECK:STDOUT:   %.loc11_9.1: type = value_of_initializer %int.make_type_32.loc11 [template = i32]
+// CHECK:STDOUT:   %.loc11_9.2: type = converted %int.make_type_32.loc11, %.loc11_9.1 [template = i32]
+// CHECK:STDOUT:   %.loc11_15: type = array_type %.loc11_14, i32 [template = constants.%.3]
+>>>>>>> parent of 91d3545f5 (testdata changes)
 // CHECK:STDOUT:   %int.make_type_32.loc15: init type = call constants.%Int32() [template = i32]
 // CHECK:STDOUT:   %.loc15_8.1: type = value_of_initializer %int.make_type_32.loc15 [template = i32]
 // CHECK:STDOUT:   %.loc15_8.2: type = converted %int.make_type_32.loc15, %.loc15_8.1 [template = i32]
 // CHECK:STDOUT:   %b.var: ref i32 = var b
 // CHECK:STDOUT:   %b: ref i32 = bind_name b, %b.var
+<<<<<<< HEAD
+=======
+// CHECK:STDOUT:   %int.make_type_32.loc17_9: init type = call constants.%Int32() [template = i32]
+// CHECK:STDOUT:   %int.make_type_32.loc17_14: init type = call constants.%Int32() [template = i32]
+// CHECK:STDOUT:   %.loc17_17.1: %.14 = tuple_literal (%int.make_type_32.loc17_9, %int.make_type_32.loc17_14)
+// CHECK:STDOUT:   %.loc17_17.2: type = value_of_initializer %int.make_type_32.loc17_9 [template = i32]
+// CHECK:STDOUT:   %.loc17_17.3: type = converted %int.make_type_32.loc17_9, %.loc17_17.2 [template = i32]
+// CHECK:STDOUT:   %.loc17_17.4: type = value_of_initializer %int.make_type_32.loc17_14 [template = i32]
+// CHECK:STDOUT:   %.loc17_17.5: type = converted %int.make_type_32.loc17_14, %.loc17_17.4 [template = i32]
+// CHECK:STDOUT:   %.loc17_17.6: type = converted %.loc17_17.1, constants.%.7 [template = constants.%.7]
+// CHECK:STDOUT:   %int.make_type_32.loc18: init type = call constants.%Int32() [template = i32]
+// CHECK:STDOUT:   %.loc18_8.1: type = value_of_initializer %int.make_type_32.loc18 [template = i32]
+// CHECK:STDOUT:   %.loc18_8.2: type = converted %int.make_type_32.loc18, %.loc18_8.1 [template = i32]
+>>>>>>> parent of 91d3545f5 (testdata changes)
 // CHECK:STDOUT: }
 // CHECK:STDOUT:
 // CHECK:STDOUT: interface @Negate {
@@ -96,6 +118,7 @@ var b: i32 = a[-10];
 // CHECK:STDOUT:
 // CHECK:STDOUT: fn @__global_init() {
 // CHECK:STDOUT: !entry:
+<<<<<<< HEAD
 // CHECK:STDOUT:   %.loc11_22: i32 = int_literal 12 [template = constants.%.5]
 // CHECK:STDOUT:   %.loc11_26: i32 = int_literal 6 [template = constants.%.6]
 // CHECK:STDOUT:   %.loc11_27.1: %.3 = tuple_literal (%.loc11_22, %.loc11_26)
@@ -110,6 +133,38 @@ var b: i32 = a[-10];
 // CHECK:STDOUT:   %.loc15_17: i32 = int_literal 10 [template = constants.%.7]
 // CHECK:STDOUT:   %.loc15_19: ref <error> = tuple_index %a.ref, <error> [template = <error>]
 // CHECK:STDOUT:   assign file.%b.var, <error>
+=======
+// CHECK:STDOUT:   %.loc11_20: i32 = int_literal 12 [template = constants.%.5]
+// CHECK:STDOUT:   %.loc11_24: i32 = int_literal 6 [template = constants.%.6]
+// CHECK:STDOUT:   %.loc11_25.1: %.7 = tuple_literal (%.loc11_20, %.loc11_24)
+// CHECK:STDOUT:   %.loc11_25.2: ref %.3 = temporary_storage
+// CHECK:STDOUT:   %.loc11_25.3: i32 = int_literal 0 [template = constants.%.8]
+// CHECK:STDOUT:   %.loc11_25.4: ref i32 = array_index %.loc11_25.2, %.loc11_25.3
+// CHECK:STDOUT:   %.loc11_25.5: init i32 = initialize_from %.loc11_20 to %.loc11_25.4 [template = constants.%.5]
+// CHECK:STDOUT:   %.loc11_25.6: i32 = int_literal 1 [template = constants.%.9]
+// CHECK:STDOUT:   %.loc11_25.7: ref i32 = array_index %.loc11_25.2, %.loc11_25.6
+// CHECK:STDOUT:   %.loc11_25.8: init i32 = initialize_from %.loc11_24 to %.loc11_25.7 [template = constants.%.6]
+// CHECK:STDOUT:   %.loc11_25.9: init %.3 = array_init (%.loc11_25.5, %.loc11_25.8) to %.loc11_25.2 [template = constants.%array]
+// CHECK:STDOUT:   %.loc11_26.1: init %.3 = converted %.loc11_25.1, %.loc11_25.9 [template = constants.%array]
+// CHECK:STDOUT:   %.loc11_26.2: ref %.3 = temporary %.loc11_25.2, %.loc11_26.1
+// CHECK:STDOUT:   %.loc11_26.3: %.3 = bind_value %.loc11_26.2
+// CHECK:STDOUT:   %a: %.3 = bind_name a, %.loc11_26.3
+// CHECK:STDOUT:   %a.ref.loc15: %.3 = name_ref a, %a
+// CHECK:STDOUT:   %.loc15_17: i32 = int_literal 10 [template = constants.%.10]
+// CHECK:STDOUT:   %.loc15_19.1: ref %.3 = value_as_ref %a.ref.loc15
+// CHECK:STDOUT:   %.loc15_19.2: ref i32 = array_index %.loc15_19.1, <error> [template = <error>]
+// CHECK:STDOUT:   %.loc15_19.3: i32 = bind_value %.loc15_19.2
+// CHECK:STDOUT:   assign file.%b.var, %.loc15_19.3
+// CHECK:STDOUT:   %.loc17_22: i32 = int_literal 1 [template = constants.%.9]
+// CHECK:STDOUT:   %.loc17_25: i32 = int_literal 2 [template = constants.%.2]
+// CHECK:STDOUT:   %.loc17_26: %.7 = tuple_literal (%.loc17_22, %.loc17_25)
+// CHECK:STDOUT:   %tuple: %.7 = tuple_value (%.loc17_22, %.loc17_25) [template = constants.%tuple]
+// CHECK:STDOUT:   %.loc17_27: %.7 = converted %.loc17_26, %tuple [template = constants.%tuple]
+// CHECK:STDOUT:   %c: %.7 = bind_name c, %.loc17_27
+// CHECK:STDOUT:   %a.ref.loc18: %.3 = name_ref a, %a
+// CHECK:STDOUT:   %.loc18: i32 = int_literal 1 [template = constants.%.9]
+// CHECK:STDOUT:   %d: i32 = bind_name d, <error>
+>>>>>>> parent of 91d3545f5 (testdata changes)
 // CHECK:STDOUT:   return
 // CHECK:STDOUT: }
 // CHECK:STDOUT:

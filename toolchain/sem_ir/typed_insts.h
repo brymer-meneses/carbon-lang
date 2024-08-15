@@ -973,10 +973,10 @@ struct TupleAccess {
   ElementIndex index;
 };
 
-// Access to a tuple member by index, such as `tuple[index]`.
+// Access to a tuple member by index, such as `tuple.(index)`.
 struct TupleIndex {
-  static constexpr auto Kind = InstKind::TupleIndex.Define<Parse::IndexExprId>(
-      {.ir_name = "tuple_index"});
+  static constexpr auto Kind =
+      InstKind::TupleAccess.Define<Parse::NodeId>({.ir_name = "tuple_index"});
 
   TypeId type_id;
   InstId tuple_id;
